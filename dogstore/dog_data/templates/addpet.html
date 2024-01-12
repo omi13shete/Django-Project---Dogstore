@@ -1,0 +1,142 @@
+{% extends "main.html" %}
+{% block title %}Add Pet-{% endblock title %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Pet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <br>
+    <br>
+    <form action="/addpet" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="pet_id">Pet ID:</label>
+        <input type="text" id="pet_id" name="pet_id" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="breed">Breed:</label>
+        <input type="text" id="breed" name="breed" required>
+
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" required>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*">
+
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
+
+{% endblock body %}
+
+{% comment %} <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Information Form</title>
+</head>
+<body>
+
+<h2>Pet Information Form</h2>
+
+<form action="/addpet" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="pet_id">pet_id:</label>
+    <input type="text" id="pet_id" name="pet_id" required>
+    <br>
+    <br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <br>
+
+
+    <label for="breed">Breed:</label>
+    <input type="text" id="breed" name="breed" required>
+    <br>
+    <br>
+
+
+    <label for="sex">Sex:</label>
+    <select id="sex" name="sex" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+    </select>
+    <br>
+    <br>
+
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required>
+    <br>
+    <br>
+
+
+    <label for="image">Image:</label>
+    <input type="file" id="image" name="image" accept="image/*">
+    <br>
+    <br>
+
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html> {% endcomment %}
+
+
+
